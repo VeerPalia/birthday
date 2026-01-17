@@ -1,0 +1,347 @@
+*{margin:0;padding:0;box-sizing:border-box;}
+
+body{
+  height:100vh;
+  background:linear-gradient(135deg,#ff5fa2,#c77dff);
+  font-family:'Poppins',sans-serif;
+  overflow:hidden;
+}
+
+.page{
+  position:absolute;
+  inset:0;
+  display:none;
+  justify-content:center;
+  align-items:center;
+}
+.page.active{display:flex;}
+
+.card{
+  background:#fff6f0;
+  width:330px;
+  padding:25px;
+  border-radius:25px;
+  text-align:center;
+  box-shadow:0 20px 40px rgba(0,0,0,0.2);
+  animation:pop .8s ease;
+}
+
+@keyframes pop{
+  from{transform:scale(.8);opacity:0}
+  to{transform:scale(1);opacity:1}
+}
+
+h1,h2{
+  font-family:'Sacramento',cursive;
+  color:#ff4d8d;
+  font-size:2.3rem;
+}
+
+p{color:#555;margin-top:10px;font-size:14px;}
+
+button{
+  margin-top:20px;
+  padding:12px 30px;
+  border:none;
+  border-radius:30px;
+  background:#ff4d8d;
+  color:white;
+  font-size:1rem;
+  cursor:pointer;
+}
+
+/* PHOTOS */
+.photo-box{
+  margin-top:20px;
+  height:200px;
+  width:100%;
+  max-width:260px;
+  position:relative;
+  overflow:hidden;
+  border-radius:15px;
+
+  /* 🔥 CENTER FIX */
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+
+.photo-box img{
+  position:absolute;
+  inset:0;
+  margin:auto;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+
+  opacity:0;
+  transform:scale(1.05);
+  transition:opacity 1.2s ease, transform 6s ease;
+}
+
+.photo-box img.show{
+  opacity:1;
+  transform:scale(1);
+}
+
+
+/* MESSAGE */
+.msg-box{
+  background:white;
+  padding:15px;
+  border-radius:15px;
+  margin-top:15px;
+  min-height:120px;
+}
+
+/* CAKE */
+.cake-area{
+  position:relative;
+  margin-top:15px;
+}
+
+#cake{
+  width:180px;
+  transition:.8s;
+}
+
+#cake.cut{
+  transform:scale(.9) rotate(-4deg);
+}
+.knife-box {
+  position: absolute;
+  right: 20px;        /* adjust horizontal position */
+  top: 35%;           /* vertical position */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 5;
+}
+
+.knife-box .hint {
+  position: relative;
+  font-size: 12px;
+  color: #ff4d8d;
+  background: white;
+  padding: 8px 12px;
+  border-radius: 25px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  white-space: nowrap;
+  margin-bottom: 8px; /* distance from knife */
+  animation: blink 1.5s infinite;
+  z-index: 6;
+}
+
+/* Triangle pointing down to knife */
+.knife-box .hint::after {
+  content: '';
+  position: absolute;
+  top: 100%; /* directly below bubble */
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 8px 8px 0 8px;
+  border-style: solid;
+  border-color: white transparent transparent transparent;
+}
+.knife-box .hint {
+  animation: blink 1.5s infinite, wiggle 1.2s infinite alternate;
+}
+
+@keyframes wiggle {
+  0% { transform: translateX(0); }
+  50% { transform: translateX(5px); }
+  100% { transform: translateX(0); }
+}
+
+#knife{
+  font-size:30px;
+  position:absolute;
+  right:20px;
+  top:50%;
+  cursor:pointer;
+}
+
+#knife.cut{
+  animation:knifeCut .6s ease;
+}
+
+@keyframes knifeCut{
+  50%{transform:translateX(-40px) rotate(-20deg);}
+}
+
+#candle{
+  position:absolute;
+  top:-5px;
+  left:50%;
+  transform:translateX(-50%);
+  cursor:pointer;
+}
+#candle {
+  animation: flicker 0.3s infinite;
+}
+
+@keyframes flicker {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+#candle.blow{opacity:0}
+
+.hint{
+  font-size:13px;
+  color:#ff4d8d;
+  animation:blink 1.5s infinite;
+}
+@keyframes blink{50%{opacity:.4}}
+
+#finalText{
+  opacity:0;
+  margin-top:15px;
+  transition:1.5s;
+}
+#finalText.show{opacity:1}
+
+/* FIREWORK */
+/* FIREWORK - HEART SHAPES */
+.fire{
+  position:absolute;
+  width:12px;
+  height:12px;
+  background:transparent;
+  transform:translate(-50%,-50%);
+  animation:boom 1s ease-out forwards;
+}
+
+.fire::before,
+.fire::after{
+  content:"";
+  position:absolute;
+  width:12px;
+  height:12px;
+  background:red;
+  border-radius:50%;
+  top:0;
+  left:50%;
+  transform:translateX(-50%);
+}
+
+.fire::after{
+  left:0;
+  top:50%;
+  transform:translateY(-50%) rotate(-45deg);
+}
+
+@keyframes boom{
+  to{
+    transform:translate(var(--x),var(--y)) scale(0);
+    opacity:0;
+  }
+}
+
+
+/* GIFT */
+#gift{
+  font-size:70px;
+  cursor:pointer;
+  margin:15px 0;
+}
+
+#giftText{
+  opacity:0;
+  transition:1.5s;
+}
+#giftText.show{opacity:1}
+
+/* STICKERS */
+.stickers img{
+  position:absolute;
+  width:35px;
+  animation:float 8s linear infinite;
+  z-index:-1;
+}
+@keyframes float{
+  from{transform:translateY(110vh)}
+  to{transform:translateY(-10vh)}
+}
+
+button:disabled{
+  opacity:0.5;
+  cursor:not-allowed;
+  filter:grayscale(1);
+}
+.page.active {
+  animation: slideFade 0.8s ease forwards;
+}
+
+@keyframes slideFade {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+/* ... existing CSS ... */
+
+/* WISHES PAGE */
+.msg-board {
+  background: white;
+  padding: 15px;
+  border-radius: 15px;
+  margin-top: 15px;
+  max-height: 180px;
+  overflow: hidden;
+  position: relative;
+}
+
+.msg-board p {
+  margin: 8px 0;
+  font-size: 14px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.5s ease;
+}
+
+.msg-board p.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* MUSIC BUTTONS */
+.music-options {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 15px;
+}
+.music-options button {
+  padding: 10px 15px;
+  border-radius: 25px;
+  border: none;
+  background: #ff4d8d;
+  color: white;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+/* THANK YOU PAGE */
+.page:nth-child(8) .card {
+  text-align: center;
+  font-size: 1.1rem;
+}
+#userWish {
+  width: 100%;
+  border-radius: 15px;
+  border: 1px solid #ff4d8d;
+  padding: 10px;
+  font-size: 14px;
+  resize: none;
+  margin-top: 15px;
+  transition: transform 0.15s ease; /* quick jump */
+  position: relative;
+}
+
+#wishComment {
+  color: #ff4d8d;
+  margin-top: 8px;
+  font-size: 13px;
+  font-style: italic;
+  min-height: 18px;
+}
+

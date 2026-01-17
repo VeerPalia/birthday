@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Happy Birthday Jiya 💖</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Sacramento&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<audio id="bgm" src="music.mp3" loop></audio>
+<audio id="knifeSound" src="knife.mp3"></audio>
+
+<div class="stickers"></div>
+
+<!-- PAGE 1 -->
+<section class="page active">
+  <div class="card">
+    <h1>Happy Birthday 🎂</h1>
+    <p>You are my favorite magic ✨</p>
+    <button id="startBtn">Open 💌</button>
+  </div>
+</section>
+
+<!-- PAGE 2: Memories -->
+<section class="page">
+  <div class="card">
+    <h2>Our Memories 🌸</h2>
+    <div class="photo-box">
+      <img src="img/1.jpeg" class="show">
+      <img src="img/2.jpeg">
+      <img src="img/3.jpeg">
+    </div>
+    <button class="nextBtn">Next 💗</button>
+  </div>
+</section>
+
+<!-- PAGE 3: Personal Message -->
+<section class="page">
+  <div class="card">
+    <h2>For You 💌</h2>
+    <div class="msg-box">
+      <p id="letter"></p>
+    </div>
+    <button class="nextBtn">Next 💞</button>
+  </div>
+</section>
+
+<!-- PAGE 4: Cake -->
+<section class="page">
+  <div class="card">
+    <h2>Cake Time 🎂</h2>
+    <div class="cake-area">
+      <div class="knife-box">
+        <div class="hint">Click the knife to cut the cake 💖</div>
+        <div id="knife">🔪</div>
+      </div>
+      <img src="img/cake.png" id="cake">
+      <div id="candle">🕯</div>
+    </div>
+    <h1 id="finalText">Happy Birthday Jiya 💖</h1>
+    <button class="nextBtn" id="finalBtn" disabled>Final Surprise 🎁</button>
+  </div>
+</section>
+
+<!-- PAGE 5: Gift -->
+<section class="page">
+  <div class="card">
+    <h2>For My Special One 💝</h2>
+    <div id="gift">🎁</div>
+    <p id="giftText">
+      You are special not just today,<br>
+      but every single day 💖<br><br>
+      I’m really lucky to have you ✨
+    </p>
+    <button class="nextBtn">Next 🎶</button>
+  </div>
+</section>
+
+<!-- PAGE 6: Music Selection -->
+<section class="page">
+  <div class="card">
+    <h2>Choose Music 🎵</h2>
+    <div class="music-options">
+      <button class="musicBtn" data-src="music.mp3">Happy</button>
+      <button class="musicBtn" data-src="romantic.mp3">Romantic</button>
+      <button class="musicBtn" data-src="playful.mp3">Playful</button>
+    </div>
+    <button class="nextBtn" id="musicNext" disabled>Next 💌</button>
+  </div>
+</section>
+
+<!-- PAGE 7: User Wish Input -->
+<section class="page">
+  <div class="card">
+    <h2>Write Your Wish 💌</h2>
+    <textarea id="userWish" placeholder="Type your special wish here..." rows="4"></textarea>
+    <div id="wishComment"></div> <!-- Funny comment -->
+    <button id="wishNext" disabled>Next 🎉</button>
+  </div>
+</section>
+
+
+<!-- PAGE 8: Thank You -->
+<section class="page">
+  <div class="card">
+    <h2>Thank You! 💖</h2>
+    <p>Hope you loved your special surprise 🎂✨</p>
+    <p>Wishing you happiness and magic every day 💕</p>
+  </div>
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>
